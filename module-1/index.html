@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <title>Module 1 - Lunch Check App</title>
+</head>
+<body ng-app="LunchCheck">
+    <div ng-controller="LunchCheckController">
+        <h1>Simple Lunch Check App</h1>
+        <!--
+            I do NOT consider and empty item, i.e., `, ,` as an item towards to the count
+         -->
+        <input type="text" ng-model="lunchItems"/>
+        <button ng-click="countLunchItems()">Check If Too Much</button>
+        <br>
+
+        <br>{{message}}
+    </div>
+</body>
+</html>
