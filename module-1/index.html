@@ -6,16 +6,23 @@
     <script type="text/javascript" src="app.js"></script>
 
     <title>Module 1 - Lunch Check App</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <style>
+        h6 {color: #9d9d9d}
+    </style>
 </head>
 <body ng-app="LunchCheck">
-    <div ng-controller="LunchCheckController">
-        <h1>Simple Lunch Check App</h1>
+    <div ng-controller="LunchCheckController" class="container">
+        <h4>Simple Lunch Checker App</h4>
         <!--
             I do NOT consider and empty item, i.e., `, ,` as an item towards to the count
          -->
         <input type="text" ng-model="lunchItems"/>
-        <button ng-click="countLunchItems()">Check If Too Much</button>
+        <button ng-click="countLunchItems()" class="btn">Check If Too Much</button>
         <br>
+        <h6>I do NOT consider an empty item, i.e., `, ,` as an item towards to the count</h6>
 
         <br>{{message}}
     </div>
