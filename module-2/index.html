@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 2 - Shopping List App</title>
+
+    <!-- Minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.min.css"/>
+
+    <style type="text/css">
+        .center {margin: 0 auto;}
+        .empty-msg {color: #c0c0c0}
+    </style>
+</head>
+
+<body ng-controller="MainController as main">
+    <section class="section">
+        <div class="container">
+            <div class="level">
+                <h3 class="level-item title is-3">Shopping List Check Off</h3>
+            </div>
+
+            <div class="columns is-multiline">
+                <div class="column is-one-quarter is-offset-one-quarter" ng-controller="ToBuyController as toBuyCtrl">
+                    <!--<h3>To Buy</h3>-->
+                    <table class="table is-narrow is-bordered">
+                        <thead>
+                        <th colspan="100">Shopping List</th>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="!toBuyCtrl.groceries.length">
+                            <td class="has-text-centered empty-msg">Everything is bought!</td>
+                        </tr>
+                        <tr ng-repeat="item in toBuyCtrl.groceries">
+                            <td>Buy {{item.qty}} {{item.name}}</td>
+                            <td><button class="button is-small is-outlined is-primary"
+                                        ng-click="toBuyCtrl.buyGrocery(item, $index)">Bought</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="column is-one-quarter" ng-controller="AlreadyBoughtController as boughtCtrl">
+                    <table class="table is-narrow is-bordered">
+                        <thead>
+                        <th colspan="100">Bought Items</th>
+                        </thead>
+                        <tbody>
+                        <tr ng-if="!boughtCtrl.boughtItems.length">
+                            <td class="has-text-centered empty-msg">Nothing bought yet</td>
+                        </tr>
+                        <tr ng-repeat="item in boughtCtrl.boughtItems">
+                            <td>Bought {{item.qty}} {{item.name}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="column">
+                <button class="center level-item button is-outline is-success"
+                        ng-click="main.init()" ng-disabled="main.items.length == 5">Refresh</button>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
