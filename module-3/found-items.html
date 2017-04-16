@@ -1,0 +1,25 @@
+<p>List Count: <b>{{list.myCount}}</b></p>
+<table class="table is-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th colspan="2">Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-show="!list.matches">
+            <td class="has-text-centered msg" colspan="3">Enter A Search Term For Results</td>
+        </tr>
+        <tr ng-if="list.matches.length === 0">
+            <td class="has-text-centered msg" colspan="3">Nothing Found</td>
+        </tr>
+        <tr ng-repeat="item in list.matches">
+            <td>{{item.name}}</td>
+            <td>{{item.short_name}}</td>
+            <td>{{item.description}}</td>
+            <td><button class="button is-small is-outlined" ng-click="list.onRemove({index:$index});">Don't Want This One!</button></td>
+        </tr>
+    </tbody>
+</table>
