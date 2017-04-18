@@ -48,7 +48,7 @@ Module Solution: https://tammytee.github.io/coursera-angularjs/module-2/
 results the user sees).
 + How to utilize the angular `$http` service to access REST Endpoints.
 + To declare a constant on your angular module using the `.constants()` method when you have parts
-of your code that may be repreated but will not change throughout (i.e. the base path for an API).
+of your code that may be repeated, but will not change throughout (i.e. the base path for an API).
 
 ##### General Idea
 Create a single page application that allows a user to search restaurant menu items retrieved from a 
