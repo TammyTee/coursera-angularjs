@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MenuApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 4 - MenuApp</title>
+
+    <!-- Minified CSS -->
+    <link href="./css/bulma.min.css" rel="stylesheet"/>
+
+    <link href="./css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <ui-view></ui-view>
+
+    <!-- AngularJS -->
+    <script src="./lib/angular.min.js"></script>
+    <script src="./lib/angular-ui-router.min.js"></script>
+
+    <!-- AngularJS: Modules -->
+    <script src="./src/menuapp/menuapp.module.js"></script>
+    <script src="./src/menuapp/data.module.js"></script>
+
+    <!-- AngularJS: Routes -->
+    <script src="./src/routes.js"></script>
+
+    <!-- AngularJS: Artifacts -->
+    <script src="./src/menuapp/services/menudata.service.js"></script>
+
+    <script src="./src/menuapp/components/categories.component.js"></script>
+    <script src="./src/menuapp/components/items.component.js"></script>
+
+    <script src="./src/menuapp/controllers/category-list.controller.js"></script>
+    <script src="./src/menuapp/controllers/categorydetail-list.controller.js"></script>
+</body>
+</html>

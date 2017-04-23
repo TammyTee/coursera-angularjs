@@ -1,0 +1,18 @@
+<table class="table is-bordered">
+    <thead>
+        <tr>
+            <th>Pint</th>
+            <th>Large</th>
+            <th colspan="2">Item</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <td ng-if="item.price_small == null"> -- </td>
+            <td ng-if="item.price_small != null"><b>{{item.price_small | currency: '$'}}</b></td>
+            <td><b>{{item.price_large | currency: '$'}}</b></td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+    </tbody>
+</table>

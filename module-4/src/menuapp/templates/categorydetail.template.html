@@ -1,0 +1,26 @@
+<nav class="nav has-shadow">
+    <div class="container">
+        <div class="nav-left"></div>
+        <div class="nav-center">
+            <p class="nav-item"><strong>{{cDetailList.category}}</strong></p>
+        </div>
+        <div class="nav-right">
+            <a class="nav-item" ui-sref="home">
+                Home
+            </a>
+            <a class="nav-item is-tab" ui-sref="category">
+                Menu Categories
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="section">
+    <h1 class="title is-3 has-text-centered">{{cDetailList.category}} Menu</h1>
+    <!-- Category Items Component -->
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <items items="cDetailList.items"></items>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<div class="columns is-multiline">
+    <div class="column is-one-quarter" ng-repeat="category in $ctrl.categories | orderBy: 'name'">
+        <div class="card">
+            <div class="card-content">
+                <p class="subtitle">{{category.name}}</p>
+            </div>
+
+            <footer class="card-footer">
+                <a class="card-footer-item" ui-sref="items({categoryId: category.short_name})">View Menu Items</a>
+            </footer>
+        </div>
+    </div>
+</div>
