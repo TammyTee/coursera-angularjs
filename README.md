@@ -57,3 +57,19 @@ contain the search term. If no results match then a message should be displayed 
 should also be able to remove items from the returned results list.
 
 Module Solution: https://tammytee.github.io/coursera-angularjs/module-3/
+
+### Module 4 - Components, Events, Modules, and Routing
+
+##### Lessons
++ How to create components and make use of component based architecture.
++ Understand the difference between `ngRoute` and `ui-router`.
++ Learn single page routing with `ui-router` and handle data with routing.
++ How to use the AngularJS Events System to publish and subscribe to events.
+
+##### General Idea
+Create a single page application with 3 views (home, categories, and items) utilizing 
+restaurant menu data retrieved from a REST API. Use the `$stateParams` service to retrieve
+paramaters from the URL to show the user the correct menu items when a menu category is 
+selected.
+
+Module Solution: https://tammytee.github.io/coursera-angularjs/module-4/#/
