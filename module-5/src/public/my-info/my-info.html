@@ -34,8 +34,11 @@
                 </tbody>
             </table>
 
-            <img class="img-responsive" width="250" height="150"
-                 ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.favShortName}}.jpg" alt="{{myInfoCtrl.favName}}">
+            <div class="menu-item-photo no-margin-left">
+                <div>{{myInfoCtrl.favShortName}}</div>
+                <img class="img-responsive" width="250" height="150"
+                     ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.favShortName}}.jpg" alt="{{myInfoCtrl.favName}}">
+            </div>
 
             <p>{{myInfoCtrl.user.fav.description}}</p>
         </div>

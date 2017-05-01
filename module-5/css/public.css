@@ -125,6 +125,10 @@ h3.menu-item-title {
 .user-info>tbody>tr>td {
   border-top: none;
 }
+
+.no-margin-left {
+  margin-left: 0;
+}
 /* END MY INFO PAGE */
 /********** Large devices only **********/
 @media (min-width: 1200px) {
