@@ -6,36 +6,47 @@
   angular.module('public')
     .controller('SignUpController', SignUpController);
 
-  SignUpController.$inject = ['menuItems'];
-  function SignUpController(menuItems){
+  SignUpController.$inject = ['items', 'FindMatchService', 'UserService'];
+  function SignUpController(items, FindMatchService, UserService){
     var vm = this;
-    vm.items = menuItems.menu_items;
-    vm.user = {};
-    vm.fav = {};
+    vm.items  = items.menu_items;
     vm.master = {};
+    vm.user   = {};
+    vm.fav    = {};
 
-    vm.resetErr = function () {
+    vm.reset = function () {
       vm.fav.msg = ' ';
       vm.fav.err = false;
     };
 
-    vm.getFavItem = function (form) {
-      var len = vm.items.length;
+    vm.getFavItem = function () {
+      var value    = vm.user.favItem,
+          valueLen = value.length,
+          isMatch  = FindMatchService.isMatch(value, vm.items);
 
-      if(vm.user.favItem.length > 0){
-        for(var i = 0; i < len; i += 1){
-          if(vm.items[i].short_name.toLowerCase() === vm.user.favItem.toLowerCase()){
-            vm.resetErr();
-            return;
-          }else {
-            vm.fav.msg = 'No such menu item exists.';
-            vm.fav.err = true;
-          }
-        }
+      if(valueLen > 0 && isMatch){
+        vm.user.fav = FindMatchService.getMatch();
+        vm.reset();
+      }else {
+        vm.fav.msg = 'No such menu item exists.';
+        vm.fav.err = true;
       }
-      else {
-        vm.resetErr();
+
+      if(valueLen === 0) {
+        vm.reset();
       }
+    };
+
+    vm.save = function (form) {
+      // save user info to service
+      UserService.setUser(vm.user);
+
+      // clear and reset form
+      vm.user = angular.copy(vm.master);
+      form.$setPristine();
+      form.$setUntouched();
+
+      vm.submitted = true;
     };
   }
 })();

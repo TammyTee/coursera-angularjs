@@ -48,10 +48,17 @@ function routeConfig ($stateProvider) {
       controller: 'SignUpController',
       controllerAs: 'signUpCtrl',
       resolve: {
-        menuItems: ['MenuService', function (MenuService) {
+        items: ['MenuService', function (MenuService) {
           return MenuService.getMenuItems();
         }]
       }
+    })
+
+    .state('public.info', {
+      url: '/my-info',
+      templateUrl: 'src/public/my-info/my-info.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myInfoCtrl'
     });
 }
 })();

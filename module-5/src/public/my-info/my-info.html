@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row">
+        <h2 class="text-center">My Info</h2>
+
+        <div class="col-md-6 col-md-offset-3 text-center"
+             ng-hide="myInfoCtrl.user !== undefined">
+
+            <p>You're Not Signed Up Yet</p>
+            <button ui-sref="public.signup" class="btn">Sign Up Now</button>
+        </div>
+
+        <div class="col-md-6 col-md-offset-3"
+             ng-show="myInfoCtrl.user">
+
+            <table class="table user-info">
+                <tbody>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td>{{myInfoCtrl.user.firstname}} {{myInfoCtrl.user.lastname}}</td>
+                </tr>
+                <tr>
+                    <td><b>Email Address</b></td>
+                    <td>{{myInfoCtrl.user.email}}</td>
+                </tr>
+                <tr>
+                    <td><b>Phone</b></td>
+                    <td>{{myInfoCtrl.user.phone}}</td>
+                </tr>
+                <tr ng-if="myInfoCtrl.user.fav">
+                    <td><b>Favorite Item</b></td>
+                    <td>{{myInfoCtrl.user.fav.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <img class="img-responsive" width="250" height="150"
+                 ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.favShortName}}.jpg" alt="{{myInfoCtrl.favName}}">
+
+            <p>{{myInfoCtrl.user.fav.description}}</p>
+        </div>
+
+    </div>
+
+</div>
